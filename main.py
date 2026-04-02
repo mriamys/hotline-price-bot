@@ -15,7 +15,8 @@ TOKEN = os.getenv("BOT_TOKEN")
 if not TOKEN:
     raise ValueError("Токен бота не найден! Проверьте переменные окружения.")
 
-# TOKEN = "ВАШ_ТОКЕН_ОТ_BOTFATHER"
+# Очистка токена от возможных кавычек и лишних пробелов (распространенная проблема в Railway)
+TOKEN = TOKEN.strip().replace('"', '').replace("'", "")
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 db = Database()
