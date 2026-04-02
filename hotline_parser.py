@@ -1,6 +1,10 @@
 import asyncio
 import re
+import os
 from playwright.async_api import async_playwright
+
+# Гарантируем, что парсер ищет браузеры в правильной папке
+os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/app/pw-browsers"
 
 HEADERS = {
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36",

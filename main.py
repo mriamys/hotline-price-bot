@@ -9,6 +9,9 @@ from database import Database
 import os
 from dotenv import load_dotenv
 
+# Принудительный путь к браузерам для Railway (чтобы бот их нашел в папке /app/pw-browsers)
+os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/app/pw-browsers"
+
 load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 
