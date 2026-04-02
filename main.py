@@ -6,8 +6,16 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from hotline_parser import search_hotline
 from checker import check_prices
 from database import Database
+import os
+from dotenv import load_dotenv
 
-TOKEN = "ВАШ_ТОКЕН_ОТ_BOTFATHER"
+load_dotenv()
+TOKEN = os.getenv("BOT_TOKEN")
+
+if not TOKEN:
+    raise ValueError("Токен бота не найден! Проверьте переменные окружения.")
+
+# TOKEN = "ВАШ_ТОКЕН_ОТ_BOTFATHER"
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 db = Database()
