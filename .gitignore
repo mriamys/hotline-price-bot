@@ -1,0 +1,78 @@
+# ==============================
+# Секреты и конфиденциальные данные
+# ==============================
+.env
+*.env
+.env.local
+.env.production
+
+# ==============================
+# База данных
+# ==============================
+*.db
+*.sqlite
+*.sqlite3
+users_data.db
+
+# ==============================
+# Отладочные файлы парсера
+# ==============================
+debug_final.png
+product_debug.png
+product_debug.html
+search_debug.png
+search_debug.html
+*.png
+*.html
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Виртуальное окружение
+venv/
+.venv/
+env/
+ENV/
+.env/
+
+# Дистрибуция / сборка
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Тесты и покрытие
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ==============================
+# Редакторы и IDE
+# ==============================
+
+# VSCode
+.vscode/
+
+# PyCharm / JetBrains
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Логи
+# ==============================
+*.log
+logs/
