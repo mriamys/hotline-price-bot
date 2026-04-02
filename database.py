@@ -3,10 +3,15 @@ import sqlite3
 
 class Database:
     def __init__(self):
-        # Это найдет папку, где лежит сам файл database.py, и создаст базу там
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        db_path = os.path.join(base_dir, "users_data.db")
-        self.conn = sqlite3.connect(db_path, check_same_thread=False) # Важно для многопоточности
+        # По умолчанию создаем БД в той же папке, но позволяем переопределить через переменную окружения
+        # Это важно для Railway: если подключить Volume, можно указать путь к нему (например, /data/users_data.db)
+        db_path = os.getenv("DATABASE_PATH")
+        if not db_path:
+            base_dir = os.path.dirname(os.path.abspath(__file__))
+            db_path = os.path.join(base_dir, "users_data.db")
+        
+        print(f"📁 Используется база данных по адресу: {db_path}")
+        self.conn = sqlite3.connect(db_path, check_same_thread=False)
         self.cursor = self.conn.cursor()
         self.create_tables()
 
