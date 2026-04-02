@@ -4,6 +4,8 @@ nixPkgs = ["python311", "playwright-driver"]
 [phases.install]
 cmds = [
     "python -m pip install -r requirements.txt",
-    "playwright install chromium",
-    "playwright install-deps chromium"
+    "export PLAYWRIGHT_BROWSERS_PATH=/app/pw-browsers && python -m playwright install chromium --with-deps"
 ]
+
+[variables]
+PLAYWRIGHT_BROWSERS_PATH = "/app/pw-browsers"
