@@ -9,20 +9,7 @@ from database import Database
 import os
 from dotenv import load_dotenv
 
-# Принудительный путь к браузерам для Railway (чтобы бот их нашел в папке /app/pw-browsers)
-os.environ["PLAYWRIGHT_BROWSERS_PATH"] = "/app/pw-browsers"
-
 load_dotenv()
-
-# ОТЛАДКА ПУТЕЙ (чтобы понять, что видит Railway)
-print("--- DEBUG PATHS ---")
-if os.path.exists("/app/pw-browsers"):
-    for root, dirs, files in os.walk("/app/pw-browsers"):
-        print(f"Folder: {root}")
-else:
-    print("ERROR: /app/pw-browsers DOES NOT EXIST")
-print("-------------------")
-
 TOKEN = os.getenv("BOT_TOKEN")
 
 if not TOKEN:
